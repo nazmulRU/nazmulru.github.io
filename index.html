@@ -1,40 +1,447 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
-        <title>Portfolio Website</title>
-    </head>
-    <body>
-        <header>
-            <a href="#" class="logo">Nazmul Hasan</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nazmul Hasan | Portfolio</title>
 
-            <nav>
-                <a href="#">Nazmul</a>
-                <a href="#">Skills</a>
-                <a href="#">Academia</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </nav>
-        </header>
-        <section class="home">
-            <div class="home-img">
-                <img src="Nazmul.jpg" alt="">
-            </div>
-            <div class="home-content">
-                <h1>Hi It's <span>Nazmul Hasan</span></h1>
-                
-                <p>I’m Nazmul Hasan, a passionate photographer and a computer science student from the University of Rajshahi, originally from Narsingdi. As the only child in my family, I’ve grown up valuing independence and personal responsibility. I have a curious mind and enjoy exploring new things, constantly challenging myself to learn and improve. At the same time, I appreciate the little things in life that bring joy and meaning. I believe in balancing ambition with kindness and staying true to the values that shape who I am.</p>
-                <p class="socials">To see my photographs click <a href="https://www.instagram.com/photography_by_nazmul/">here.</a></p>
-                <p class="notice">This website is under development. More informations will be added later.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/photography_by_nazmul/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://github.com/nazmulRU"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.facebook.com/nazh7234/"><i class="fa-brands fa-facebook"></i></a>
-                </div>
-            </div>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        </section>
-    </body>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f0f0f;
+      color:#f5f5f5;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    section{
+      padding:90px 10%;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      padding:22px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(15,15,15,0.75);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    nav a{
+      margin-left:30px;
+      position:relative;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      left:0;
+      bottom:-5px;
+      background:#ffffff;
+      transition:0.4s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    nav a:hover{
+      color:#cfcfcf;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:60px;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h1{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      max-width:600px;
+      color:#c9c9c9;
+      font-size:17px;
+    }
+
+    .hero-img{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-img img{
+      width:330px;
+      height:430px;
+      object-fit:cover;
+      border-radius:25px;
+      border:2px solid rgba(255,255,255,0.1);
+      box-shadow:0 20px 40px rgba(0,0,0,0.5);
+      transition:0.4s;
+    }
+
+    .hero-img img:hover{
+      transform:scale(1.03);
+    }
+
+    /* SECTION TITLE */
+
+    .section-title{
+      font-size:34px;
+      margin-bottom:40px;
+      position:relative;
+      display:inline-block;
+    }
+
+    .section-title::after{
+      content:"";
+      position:absolute;
+      width:60%;
+      height:3px;
+      background:#ffffff;
+      left:0;
+      bottom:-8px;
+    }
+
+    /* PASSIONS */
+
+    .passion-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .passion-box{
+      background:#181818;
+      padding:35px;
+      border-radius:20px;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .passion-box:hover{
+      transform:translateY(-8px);
+      background:#202020;
+    }
+
+    .passion-box i{
+      font-size:34px;
+      margin-bottom:18px;
+    }
+
+    .passion-box h3{
+      margin-bottom:12px;
+    }
+
+    /* JOURNEY */
+
+    .timeline{
+      border-left:2px solid rgba(255,255,255,0.2);
+      padding-left:30px;
+    }
+
+    .timeline-item{
+      margin-bottom:40px;
+      position:relative;
+    }
+
+    .timeline-item::before{
+      content:"";
+      position:absolute;
+      left:-39px;
+      top:5px;
+      width:15px;
+      height:15px;
+      background:#fff;
+      border-radius:50%;
+    }
+
+    .timeline-item h3{
+      margin-bottom:8px;
+    }
+
+    .timeline-item p{
+      color:#c7c7c7;
+    }
+
+    /* ACHIEVEMENTS */
+
+    .achievements{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .achievement-box{
+      background:#181818;
+      padding:30px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .achievement-box:hover{
+      transform:translateY(-6px);
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 10%;
+      border-top:1px solid rgba(255,255,255,0.08);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .footer-icons a{
+      margin-left:18px;
+      font-size:22px;
+      transition:0.3s;
+    }
+
+    .footer-icons a:hover{
+      color:#bdbdbd;
+      transform:translateY(-3px);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding-top:120px;
+      }
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .hero-img img{
+        width:270px;
+        height:350px;
+      }
+
+      footer{
+        text-align:center;
+        justify-content:center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="logo">Nazmul Hasan</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero" id="about">
+
+    <div class="hero-text">
+      <h1>Hello, I'm Nazmul Hasan</h1>
+
+      <p>
+        A Computer Science student, photographer, explorer, and dreamer.
+        I love capturing emotions through photography, discovering new places,
+        and turning ideas into reality through creativity and technology.
+      </p>
+    </div>
+
+    <div class="hero-img">
+      <!-- Replace with your own image -->
+      <img src="your-photo.jpg" alt="Nazmul Hasan">
+    </div>
+
+  </section>
+
+  <!-- PASSIONS -->
+
+  <section>
+
+    <h2 class="section-title">Things I Love</h2>
+
+    <div class="passion-container">
+
+      <div class="passion-box">
+        <i class="fa-solid fa-camera"></i>
+        <h3>Photography</h3>
+        <p>
+          Capturing stories, emotions, and timeless moments through my lens.
+        </p>
+      </div>
+
+      <div class="passion-box">
+        <i class="fa-solid fa-earth-asia"></i>
+        <h3>Explore</h3>
+        <p>
+          Discovering new places, cultures, and experiences that inspire me.
+        </p>
+      </div>
+
+      <div class="passion-box">
+        <i class="fa-solid fa-mountain-sun"></i>
+        <h3>Adventure</h3>
+        <p>
+          Living for excitement, challenges, and unforgettable journeys.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ACADEMIC JOURNEY -->
+
+  <section>
+
+    <h2 class="section-title">Academic Journey</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>Jamea Quasemia</h3>
+        <p>Class 5 to Class 10</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Narsingdi Science College</h3>
+        <p>Class 11 to Class 12</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>University of Rajshahi</h3>
+        <p>B.Sc. in Computer Science & Engineering</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+
+  <section id="gallery">
+
+    <h2 class="section-title">Achievements</h2>
+
+    <div class="achievements">
+
+      <div class="achievement-box">
+        <h3>Photography</h3>
+        <p>
+          Participated in photography events and creative visual storytelling.
+        </p>
+      </div>
+
+      <div class="achievement-box">
+        <h3>Programming</h3>
+        <p>
+          Learning web development, problem solving, and software engineering.
+        </p>
+      </div>
+
+      <div class="achievement-box">
+        <h3>Creative Exploration</h3>
+        <p>
+          Combining technology and creativity to build artistic experiences.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <p>© 2026 Nazmul Hasan. All Rights Reserved.</p>
+
+    <div class="footer-icons">
+
+      <a href="mailto:yourmail@example.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+
+      <a href="https://instagram.com/" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://github.com/" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
 </html>
