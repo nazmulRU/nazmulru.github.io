@@ -4,7 +4,193 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nazmul Hasan | Portfolio</title>
+<!-- ADD THIS INSIDE <head> SECTION -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 
+
+<style>
+
+/* ===== BACKGROUND GLOW ===== */
+
+body{
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 25%),
+    #0f0f0f;
+}
+
+/* ===== FLOATING ANIMATION ===== */
+
+@keyframes float {
+  0%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(-12px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+/* ===== FADE IN ===== */
+
+@keyframes fadeUp {
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== HERO TEXT ANIMATION ===== */
+
+.hero-text h1{
+  animation:fadeUp 1s ease;
+}
+
+.hero-text p{
+  animation:fadeUp 1.4s ease;
+}
+
+/* ===== IMAGE EFFECT ===== */
+
+.hero-img img{
+  animation:float 5s ease-in-out infinite;
+  position:relative;
+}
+
+.hero-img img:hover{
+  transform:scale(1.05) rotate(1deg);
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.7),
+    0 0 30px rgba(255,255,255,0.08);
+}
+
+/* ===== HEADER HOVER ===== */
+
+header{
+  transition:0.4s;
+}
+
+header:hover{
+  background:rgba(15,15,15,0.92);
+}
+
+/* ===== NAV LINK EFFECT ===== */
+
+nav a{
+  letter-spacing:0.5px;
+}
+
+nav a:hover{
+  transform:translateY(-2px);
+}
+
+/* ===== SECTION TITLES ===== */
+
+.section-title{
+  transition:0.4s;
+}
+
+.section-title:hover{
+  letter-spacing:1px;
+}
+
+/* ===== CARD EFFECTS ===== */
+
+.passion-box,
+.achievement-box{
+  position:relative;
+  overflow:hidden;
+}
+
+.passion-box::before,
+.achievement-box::before{
+  content:"";
+  position:absolute;
+  width:120%;
+  height:120%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.06),
+    transparent
+  );
+
+  top:-120%;
+  left:-120%;
+  transform:rotate(25deg);
+  transition:0.7s;
+}
+
+.passion-box:hover::before,
+.achievement-box:hover::before{
+  top:100%;
+  left:100%;
+}
+
+.passion-box:hover,
+.achievement-box:hover{
+  box-shadow:0 10px 30px rgba(255,255,255,0.06);
+}
+
+/* ===== TIMELINE EFFECT ===== */
+
+.timeline-item{
+  transition:0.4s;
+}
+
+.timeline-item:hover{
+  transform:translateX(10px);
+}
+
+/* ===== FOOTER ICONS ===== */
+
+.footer-icons a{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#1b1b1b;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-icons a:hover{
+  background:#ffffff;
+  color:#000;
+  box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#444;
+  border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:#777;
+}
+
+</style>
+
+  
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -331,7 +517,7 @@
 
     <div class="passion-container">
 
-      <div class="passion-box">
+      <div class="passion-box" data-aos="zoom-in">
         <i class="fa-solid fa-camera"></i>
         <h3>Photography</h3>
         <p>
@@ -394,7 +580,7 @@
 
     <div class="achievements">
 
-      <div class="achievement-box">
+      <div class="achievement-box" data-aos="fade-up">
         <h3>Photography</h3>
         <p>
           Awarded a top 30 spot in the 'Somvabonar Frame' national photography contest, hosted by UNFPA and the Bangladesh Ministry of Women and Children Affairs.
@@ -404,7 +590,7 @@
       <div class="achievement-box">
         <h3>Exibition</h3>
         <p>
-          My photography has been displayed in several prestigious exhibitions, including exibition at the National Shilpakala Academy.
+          My photography has been displayed in several prestigious exhibitions, including exhibition at the National Shilpakala Academy.
         </p>
       </div>
 
@@ -427,7 +613,7 @@
 
     <div class="footer-icons">
 
-      <a href="nazmul.ru02@gmail.com">
+      <a href="mailto:nazmul.ru02@gmail.com">
         <i class="fa-solid fa-envelope"></i>
       </a>
 
